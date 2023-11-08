@@ -5,6 +5,7 @@ from typing import List
 from dotenv import load_dotenv
 from multiprocessing import Pool
 from tqdm import tqdm
+from embeddingsload import LoadEmbeddings
 
 from langchain.document_loaders import (
     CSVLoader,
@@ -141,7 +142,7 @@ def does_vectorstore_exist(persist_directory: str, embeddings: HuggingFaceInstru
 
 def main():
     # Create embeddings
-    embeddings = HuggingFaceInstructEmbeddings(model_name=embeddings_model_name)
+    embeddings = LoadEmbeddings()
     # Chroma client
     chroma_client = chromadb.PersistentClient(settings=CHROMA_SETTINGS , path=persist_directory)
 

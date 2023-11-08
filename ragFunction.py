@@ -21,6 +21,7 @@ model_n_batch = int(os.environ.get('MODEL_N_BATCH',8))
 target_source_chunks = int(os.environ.get('TARGET_SOURCE_CHUNKS',4))
 
 from constants import CHROMA_SETTINGS
+from sklearn.metrics.pairwise import cosine_similarity as cos_sim
 
 def rag(query : str) -> str:
     embed = LoadEmbeddings()
@@ -49,4 +50,8 @@ def rag(query : str) -> str:
     print("\n> Question :" + query)
     print(f"\n> Answer : (took {round(end - start)} s.)\n" + answer)
     
+    em = embed.encode([answer,docs[0].page_content])
+    score = cos_sim(em[0], em[1])
+    print("\n> "+f"Score :- {score}")
+
     return "rag"
