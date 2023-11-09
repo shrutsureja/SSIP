@@ -7,5 +7,5 @@ to clone this repo
 
 - git clone https://{API Token}@github.com/shrutsureja/SSIP.git
 
-# 3K_RAG jupyter notebook link 
-- ```https://colab.research.google.com/drive/16Ach_Jk5JmgArjtIumgiIRwJZ_i-Joro?usp=sharing```
+# SS_RAG jupyter notebook link 
+- ```https://colab.research.google.com/drive/1ygmeeZEkOSwrEqMAlJ6Ld1D-cKecMqQJ?usp=sharing```
