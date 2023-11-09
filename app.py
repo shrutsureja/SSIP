@@ -3,7 +3,7 @@ from ragFunction import rag
 from load_document import ingestDocument
 from chatLLM import chat
 
-!ngrok authtoken 2XfYduA6VOo2E80FKpzv2RC0H9Q_6Nppf5zANR49GdiweTeip
+!ngrok authtoken '2XfYduA6VOo2E80FKpzv2RC0H9Q_6Nppf5zANR49GdiweTeip'
 
 from flask_ngrok import run_with_ngrok
 from flask import Flask, render_template,request,jsonify
