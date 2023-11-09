@@ -40,6 +40,8 @@ source_directory = os.environ.get('SOURCE_DIRECTORY', 'source_documents')
 embeddings_model_name = os.environ.get('EMBEDDINGS_MODEL_NAME')
 chunk_size = 600
 chunk_overlap = 100
+chunk_size = 600
+chunk_overlap = 100
 
 
 # Custom document loaders

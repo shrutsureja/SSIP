@@ -7,10 +7,12 @@ while True:
     stage = input("\nEnter a stage: ")
     if stage == "ingest":
         print("Ingesting...")
+        #not to be used still underdevlopment
+        # can generate a request though to ingest the document 
         ingestDocument()
     elif stage == "question":
         print("Generating question...")
-        generateQuestion()
+        generateQuestion()#not to be used still underdevlopment
     elif stage == "rag":
         print("Ask the Question...")
         while True:
@@ -19,7 +21,7 @@ while True:
                 print("Exiting... RAG")
                 break
             else:
-                ans = rag(query)
+                ans, docs, time = rag(query)## ans will have the answer and docs will have the source document time is the time taken to answer
     elif stage == "chat":
         print("Chat with LLM...")
         while True:
@@ -28,7 +30,7 @@ while True:
                 print("Exiting... Chat")
                 break
             else:
-                ans = chat(query)
+                ans, time = chat(query)## ans will have the answer and time is the time taken to answer
     elif stage == "exit":
         break
     else:

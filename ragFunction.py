@@ -40,7 +40,7 @@ def rag(query : str) -> str:
             # raise exception if model_type is not supported
             raise Exception(f"Divice type {device_type} is not supported. Please choose one of the following: CPU , GPU ")
     qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents= True)
-
+    # map reduce to get the best answer
     start = time.time()
     res = qa(query)
     answer = res['result']
@@ -61,4 +61,4 @@ def rag(query : str) -> str:
     # score = cos_sim(em[0], em[1])
     # print("\n> "+f"Score :- {score}")
 
-    return "rag"
+    return answer, docs[0].page_content, round(end - start)

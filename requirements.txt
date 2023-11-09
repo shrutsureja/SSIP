@@ -14,3 +14,5 @@ tqdm==4.66.1
 sentence_transformers==2.2.2
 InstructorEmbedding
 huggingface_hub
+llama-index
+pypdf

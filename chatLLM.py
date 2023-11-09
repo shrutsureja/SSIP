@@ -7,7 +7,8 @@ def chat(query : str):
     start = time.time()
     print("llm : ",llm)
     print("query : ",query)
-    print("response :", llm(query))
+    res = llm(query)
+    print("response :", res)
     end = time.time()
     print(f"Response took : {round(end - start)} s.")
-    return "DONE"
+    return res,round(end - start)
