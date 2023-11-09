@@ -47,7 +47,7 @@ def question():
 def rag():
   headers = {'Content-Type': 'application/json'}
   data = request.get_json()
-  print(data)
+  print(data['query'])
    
   ans, docs, time = rag(data['query'])## ans will have the answer and docs will have the source document time is the time taken to answer
   print("Answer is : ", ans)
