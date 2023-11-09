@@ -4,7 +4,7 @@ from load_document import ingestDocument
 from chatLLM import chat
 
 NGROK_AUTH_TOKEN = '2XfYduA6VOo2E80FKpzv2RC0H9Q_6Nppf5zANR49GdiweTeip'
-!ngrok authtoken $NGROK_AUTH_TOKEN
+ngrok authtoken $NGROK_AUTH_TOKEN
 
 
 from flask_ngrok import run_with_ngrok
