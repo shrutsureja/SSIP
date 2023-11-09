@@ -31,3 +31,5 @@ while True:
                 ans = chat(query)
     elif stage == "exit":
         break
+    else:
+        print("Invalid stage")
