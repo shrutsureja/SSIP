@@ -16,7 +16,7 @@ def text():
   return f"Running Flask on Google Colab"
 
 @app.route('/ingest', methods=['POST'])
-def receive_data():
+def ingest():
 
   headers = {'Content-Type': 'application/json'}
   data = request.get_json()
@@ -30,7 +30,7 @@ def receive_data():
   return jsonify(response)
 
 @app.route('/question', methods=['POST'])
-def receive_data():
+def question():
 
   headers = {'Content-Type': 'application/json'}
   data = request.get_json()
@@ -44,7 +44,7 @@ def receive_data():
   return jsonify(response)
   
 @app.route('/rag', methods=['POST'])
-def receive_data():
+def rag():
   headers = {'Content-Type': 'application/json'}
   data = request.get_json()
   print(data)
@@ -58,7 +58,7 @@ def receive_data():
   return jsonify(response)
 
 @app.route('/chat', methods=['POST'])
-def receive_data():
+def chat():
 
   headers = {'Content-Type': 'application/json'}
   data = request.get_json()
