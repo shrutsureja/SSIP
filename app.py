@@ -7,7 +7,8 @@ from chatLLM import chat
 !pip install flask_ngrok
 !pip install flask-cors
 
-!ngrok authtoken 2XfYduA6VOo2E80FKpzv2RC0H9Q_6Nppf5zANR49GdiweTeip
+ngrok_auth_token = '2XfYduA6VOo2E80FKpzv2RC0H9Q_6Nppf5zANR49GdiweTeip'
+!ngrok authtoken $ngrok_auth_token
 
 from flask_ngrok import run_with_ngrok
 from flask import Flask, render_template,request,jsonify
