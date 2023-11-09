@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import glob
+import time
 from typing import List
 from dotenv import load_dotenv
 from multiprocessing import Pool
@@ -140,31 +141,30 @@ def does_vectorstore_exist(persist_directory: str, embeddings: HuggingFaceInstru
         return False
     return True
 
-def main():
+def ingestDocument():
     # Create embeddings
     embeddings = LoadEmbeddings()
     # Chroma client
-    chroma_client = chromadb.PersistentClient(settings=CHROMA_SETTINGS , path=persist_directory)
 
+    chroma_client = chromadb.PersistentClient(settings=CHROMA_SETTINGS , path=persist_directory)
+    print("Creating Embeddings...")
+    start = time.time()
     if does_vectorstore_exist(persist_directory, embeddings):
         # Update and store locally vectorstore
         print(f"Appending to existing vectorstore at {persist_directory}")
         db = Chroma(persist_directory=persist_directory, embedding_function=embeddings, client_settings=CHROMA_SETTINGS, client=chroma_client)
         collection = db.get()
         texts = process_documents([metadata['source'] for metadata in collection['metadatas']])
-        print(f"Creating embeddings. May take some minutes...")
+        # print(f"Creating embeddings. May take some minutes...")
         db.add_documents(texts)
     else:
         # Create and store locally vectorstore
         print("Creating new vectorstore")
         texts = process_documents()
-        print(f"Creating embeddings. May take some minutes...")
+        # print(f"Creating embeddings. May take some minutes...")
         db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory, client_settings=CHROMA_SETTINGS, client=chroma_client)
     db.persist()
     db = None
-
-    print(f"Ingestion complete! You can now run chat_with_document.py to query your documents")
-
-
-if __name__ == "__main__":
-    main()
+    end = time.time()
+    print(f"Ingestion Done in {round(end - start)} s.")
+    print(f"Ingestion complete! Vectorstore stored at {persist_directory}")

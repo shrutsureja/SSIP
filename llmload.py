@@ -19,4 +19,5 @@ def LoadLLM(**kwargs):
         llm = LlamaCpp(model_path=model_path, **kwargs)
     end = time.time()
     print(f"LLM loaded in {round(end - start)} s.")
+    print("llm : ",llm)
     return llm

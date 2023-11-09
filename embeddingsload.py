@@ -24,4 +24,5 @@ def LoadEmbeddings():
         print(f"Embeddings loaded in {round(end - strt)} s.")
     else:
         print ("Embeddings already loaded")
+    print("embed : ",embed)
     return embed

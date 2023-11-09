@@ -50,8 +50,15 @@ def rag(query : str) -> str:
     print("\n> Question :" + query)
     print(f"\n> Answer : (took {round(end - start)} s.)\n" + answer)
     
-    em = embed.encode([answer,docs[0].page_content])
-    score = cos_sim(em[0], em[1])
-    print("\n> "+f"Score :- {score}")
+    # print("\n> Source Documents :",docs)
+    if answer == "":
+        print("Answer is empty")
+    print("Answer length is : ",len(answer))
+    print("\n> Source Documents :",docs[0].page_content)
+
+    #error
+    # em = embed.encode([answer,docs[0].page_content])
+    # score = cos_sim(em[0], em[1])
+    # print("\n> "+f"Score :- {score}")
 
     return "rag"
