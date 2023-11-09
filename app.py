@@ -49,7 +49,7 @@ def rag():
   data = request.get_json()
   print(data)
    
-  ans, docs, time = rag(query)## ans will have the answer and docs will have the source document time is the time taken to answer
+  ans, docs, time = rag(data.query)## ans will have the answer and docs will have the source document time is the time taken to answer
   print("Answer is : ", ans)
   print("Source Document is : ", docs)
   print("Time taken is : ", time)
@@ -64,7 +64,7 @@ def chat():
   data = request.get_json()
   print(data)
    
-  ans, time = chat(query)## ans will have the answer and time is the time taken to answer
+  ans, time = chat(data.query)## ans will have the answer and time is the time taken to answer
   print("Answer is : ", ans)
   print("Time taken is : ", time)
 
