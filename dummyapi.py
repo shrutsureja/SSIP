@@ -1,5 +1,5 @@
 from ragFunction import rag
-from GenerateQuestion import generateQuestion
+# from GenerateQuestion import generateQuestion
 from load_document import ingestDocument
 from chatLLM import chat
 
@@ -12,7 +12,8 @@ while True:
         ingestDocument()
     elif stage == "question":
         print("Generating question...")
-        generateQuestion()#not to be used still underdevlopment
+        print("Under Development...")
+        # generateQuestion()#not to be used still underdevlopment
     elif stage == "rag":
         print("Ask the Question...")
         while True:
@@ -22,6 +23,9 @@ while True:
                 break
             else:
                 ans, docs, time = rag(query)## ans will have the answer and docs will have the source document time is the time taken to answer
+                print("Answer is : ", ans)
+                print("Source Document is : ", docs)
+                print("Time taken is : ", time)
     elif stage == "chat":
         print("Chat with LLM...")
         while True:
@@ -31,6 +35,8 @@ while True:
                 break
             else:
                 ans, time = chat(query)## ans will have the answer and time is the time taken to answer
+                print("Answer is : ", ans)
+                print("Time taken is : ", time)
     elif stage == "exit":
         break
     else:
