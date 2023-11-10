@@ -1,4 +1,4 @@
-from ragFunction import rag
+from ragFunction import rag as rag_function
 # from GenerateQuestion import generateQuestion
 from load_document import ingestDocument
 from chatLLM import chat
@@ -49,7 +49,7 @@ def rag():
   data = request.get_json()
   print(data['query'])
    
-  ans, docs, time = rag(data['query'])## ans will have the answer and docs will have the source document time is the time taken to answer
+  ans, docs, time = rag_function(data['query'])## ans will have the answer and docs will have the source document time is the time taken to answer
   print("Answer is : ", ans)
   print("Source Document is : ", docs)
   print("Time taken is : ", time)
