@@ -21,7 +21,7 @@ def LoadEmbeddings():
         print("Loading Embeddings...")
         embed = HuggingFaceInstructEmbeddings(model_name=embeddings_model_name)
         end = time.time()
-        print(f"Embeddings loaded in {round(end - strt)} s.")
+        print(f"Embeddings loaded in {round(end - strt,2)} s.")
     else:
         print ("Embeddings already loaded")
     print("embed : ",embed)

@@ -168,5 +168,6 @@ def ingestDocument():
     db.persist()
     db = None
     end = time.time()
-    print(f"Ingestion Done in {round(end - start)} s.")
+    print(f"Ingestion Done in {round(end - start,2)} s.")
     print(f"Ingestion complete! Vectorstore stored at {persist_directory}")
+    print("Ingestion Done")

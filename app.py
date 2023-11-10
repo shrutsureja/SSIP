@@ -1,7 +1,7 @@
 from ragFunction import rag as rag_function
 # from GenerateQuestion import generateQuestion
 from load_document import ingestDocument
-from chatLLM import chat
+from chatLLM import chat as chat_function
 
 from flask_ngrok import run_with_ngrok
 from flask import Flask, render_template,request,jsonify
@@ -64,7 +64,7 @@ def chat():
   data = request.get_json()
   print(data)
    
-  ans, time = chat(data['query'])## ans will have the answer and time is the time taken to answer
+  ans, time = chat_function(data['query'])## ans will have the answer and time is the time taken to answer
   print("Answer is : ", ans)
   print("Time taken is : ", time)
 

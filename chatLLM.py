@@ -10,5 +10,5 @@ def chat(query : str):
     res = llm(query)
     print("\nresponse :", res)
     end = time.time()
-    print(f"\nResponse took : {round(end - start)} s.")
-    return res,round(end - start)
+    print(f"\nResponse took : {round(end - start, 2)} s.")
+    return res,round(end - start, 2)

@@ -18,6 +18,6 @@ def LoadLLM(**kwargs):
     if llm is None:
         llm = LlamaCpp(model_path=model_path, **kwargs)
     end = time.time()
-    print(f"LLM loaded in {round(end - start)} s.")
+    print(f"LLM loaded in {round(end - start, 2)} s.")
     print("\nllm : ",llm)
     return llm
