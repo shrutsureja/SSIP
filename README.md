@@ -9,3 +9,7 @@ to clone this repo
 
 # SS_RAG jupyter notebook link 
 - ```https://colab.research.google.com/drive/1ygmeeZEkOSwrEqMAlJ6Ld1D-cKecMqQJ?usp=sharing```
+
+
+##Doubts
+- once the model is loaded in the machine can we change the model parameters in the 2nd call or not
